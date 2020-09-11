@@ -7,9 +7,9 @@ public class TestingMain {
     public static void main(String[] args) {
         SimpleUser simpleUser = new SimpleUser("theForumUser");
         String result = simpleUser.getUsername();
-        Calculator calculator = new Calculator(6,3);
-        int sum = calculator.add();
-        double quotient = calculator.subtract();
+        Calculator calculator = new Calculator();
+        int sum = calculator.add(20,5);
+        double quotient = calculator.subtract(30,6);
 
 
         if (result.equals("theForumUser")) {
@@ -18,13 +18,13 @@ public class TestingMain {
             System.out.println("Error!");
         }
 
-        if (sum == 9) {
+        if (sum == 25) {
             System.out.println("test is OK");
         } else {
             System.out.println("Error!");
         }
 
-        if (quotient == 2) {
+        if (quotient == 5) {
             System.out.println("Test is OK");
         } else {
             System.out.println("Error");
