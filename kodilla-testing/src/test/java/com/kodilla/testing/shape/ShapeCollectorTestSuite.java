@@ -91,7 +91,9 @@ public class ShapeCollectorTestSuite {
             setOfFigures.add(Figure3);
             ShapeCollector collector1 = new ShapeCollector();
             //When
-            collector1.showFigures();
+            String x = collector1.showFigures();
+            //Then
+            Assertions.assertEquals(x,Figure1.getShapeName()+Figure2.getShapeName()+Figure3.getShapeName());
 
         }
 
