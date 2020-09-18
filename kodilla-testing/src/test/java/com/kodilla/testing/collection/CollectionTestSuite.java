@@ -6,15 +6,13 @@ import java.util.*;
 
 public class CollectionTestSuite {
 
+    private static int i=1;
     @BeforeEach
     public void before() {
-        int i=1;
         System.out.println(i+"Test Case : Begin");
-        i++;
     }
     @AfterEach
     public void after() {
-        int i=1;
         System.out.println(i+"Test case : End");
         i++;
     }
@@ -24,11 +22,10 @@ public class CollectionTestSuite {
     void testOddNumbersExterminatorEmptyList() {
         //Given
         List <Integer> set1 = new ArrayList<>();
-        set1.clear();
+
         //When
         OddNumbersExterminator abc = new OddNumbersExterminator();
-        List<Integer> set2;
-        set2 = abc.exterminate(set1);
+        List<Integer> set2 = abc.exterminate(set1);
         //Then
         Assertions.assertTrue(set2.isEmpty());
     }
@@ -44,11 +41,13 @@ public class CollectionTestSuite {
         }
         //When
         OddNumbersExterminator abc_1 = new OddNumbersExterminator();
-        List<Integer> set2_a;
-        set2_a = abc_1.exterminate(set1_a);
+        List<Integer> set2_a = abc_1.exterminate(set1_a);
         Integer expectedValue = 500;
         //Then
         Assertions.assertEquals(expectedValue,set2_a.size());
+        Assertions.assertFalse(set2_a.contains(1));
 
     }
+    // DO TEGO WRÓCIC !!!!!!!!!!!!!!!!!!!!!
+    List<Integer> extraSet = Arrays.asList();
 }
