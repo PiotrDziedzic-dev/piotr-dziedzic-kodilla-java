@@ -4,7 +4,7 @@ import java.util.*;
 
 public class WeatherForecast {
     private Temperatures temperatures;
-public static String text = "abc";
+
     public WeatherForecast(Temperatures temperatures) {
         this.temperatures = temperatures;
     }
@@ -29,5 +29,19 @@ public static String text = "abc";
             x += temperature.getValue();
         }
         return x/temperatures.getTemperatures().size();
+    }
+
+    public double calculateMediana() {
+
+        List<Double> xyz = new ArrayList<>(temperatures.getTemperatures().values());
+        Collections.sort(xyz);
+        double b = 0;
+        if(xyz.size() % 2 == 0) {
+            b = (xyz.get((xyz.size()/2)-1) + xyz.get((xyz.size()/2)+1))/2;
+
+        } else {
+            b = xyz.get(xyz.size()/2);
+        }
+        return b;
     }
 }

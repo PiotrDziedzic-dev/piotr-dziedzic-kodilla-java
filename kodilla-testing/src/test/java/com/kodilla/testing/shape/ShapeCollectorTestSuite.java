@@ -60,7 +60,7 @@ public class ShapeCollectorTestSuite {
             collector1.removeFigure(Figure2);
 
             //Then
-            Assertions.assertEquals(1,collector1.ammountOfFigures());//utworzyc
+            Assertions.assertEquals(1,collector1.ammountOfFigures());
         }
     }
 

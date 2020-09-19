@@ -46,6 +46,5 @@ public class CollectionTestSuite {
         Assertions.assertFalse(set2_a.contains(1));
 
     }
-    // DO TEGO WRÓCIC !!!!!!!!!!!!!!!!!!!!!
-    List<Integer> extraSet = Arrays.asList();
+
 }
