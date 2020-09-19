@@ -3,7 +3,7 @@ import java.util.*;
 
 
 public class ShapeCollector {
-    List<Shape> setOfFigures = new ArrayList<>();
+    private List<Shape> setOfFigures = new ArrayList<>();
     void addFigure(Shape shape) {
         setOfFigures.add(shape);
     }
@@ -19,5 +19,8 @@ public class ShapeCollector {
             b += shape.getShapeName();
         }
         return b;
+    }
+    int ammountOfFigures() {
+        return setOfFigures.size();
     }
 }

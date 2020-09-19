@@ -14,7 +14,7 @@ import java.util.*;
 public class ShapeCollectorTestSuite {
     private static int testCounter = 1;
 
-    @BeforeAll//czemu te dwie metody sa statyczne ?
+    @BeforeAll
     public static void beforAllTests(){
         System.out.println("This is the beginning of the tests");
     }
@@ -45,7 +45,7 @@ public class ShapeCollectorTestSuite {
             collector1.addFigure(Figure1);
 
             //Then
-            Assertions.assertEquals(1,collector1.setOfFigures.size());
+            Assertions.assertEquals(1,collector1.ammountOfFigures());//utworzyc
         }
         @Test
         public void testRemoveFigure() {
@@ -60,7 +60,7 @@ public class ShapeCollectorTestSuite {
             collector1.removeFigure(Figure2);
 
             //Then
-            Assertions.assertEquals(1,collector1.setOfFigures.size());
+            Assertions.assertEquals(1,collector1.ammountOfFigures());//utworzyc
         }
     }
 
@@ -70,14 +70,14 @@ public class ShapeCollectorTestSuite {
         @Test
         public void getFigure() {
             //Given
-            Shape Figure1 = new Triangle("Triangle",4,5);
+            Shape figure1 = new Triangle("Triangle",4,5);
             ShapeCollector collector1 = new ShapeCollector();
-            collector1.setOfFigures.add(Figure1);
+            collector1.addFigure(figure1);
 
             //When
             Shape x = collector1.getFigure(0);
             //Then
-            Assertions.assertEquals(x,Figure1);//czy tutaj moga byc obiekty ?
+            Assertions.assertEquals(x,figure1);
 
         }
         @Test
@@ -88,9 +88,9 @@ public class ShapeCollectorTestSuite {
             Shape Figure2 = new Triangle("Triangle",4,5);
             Shape Figure3 = new Square("Square",5);
             ShapeCollector collector1 = new ShapeCollector();
-            collector1.setOfFigures.add(Figure1);
-            collector1.setOfFigures.add(Figure2);
-            collector1.setOfFigures.add(Figure3);
+            collector1.addFigure(Figure1);
+            collector1.addFigure(Figure2);
+            collector1.addFigure(Figure3);
 
             //When
             String x = collector1.showFigures();
