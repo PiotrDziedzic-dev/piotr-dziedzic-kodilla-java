@@ -38,7 +38,6 @@ public class WeatherForecast {
         double b = 0;
         if(xyz.size() % 2 == 0) {
             b = (xyz.get((xyz.size()/2)-1) + xyz.get((xyz.size()/2)+1))/2;
-
         } else {
             b = xyz.get(xyz.size()/2);
         }

@@ -21,11 +21,11 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("AAAAA",a -> a+"BBBBBB");
-        poemBeautifier.beautify("XYZ",a -> "ABC"+a);
-        poemBeautifier.beautify("QWERTY", a -> a+"ABC");
-        poemBeautifier.beautify("abc",a -> a.toUpperCase());
-        poemBeautifier.beautify("zxc",a -> "AAA"+a+"AAA");
+        poemBeautifier.beautify("AAAAA",(a) -> a+"BBBBBB");
+        poemBeautifier.beautify("XYZ",(a) -> "ABC"+a);
+        poemBeautifier.beautify("QWERTY", (a) -> a+"ABC");
+        poemBeautifier.beautify("abc",(a) -> a.toUpperCase());
+        poemBeautifier.beautify("zxc",(a) -> "AAA"+a+"AAA");
 
     }
 }
