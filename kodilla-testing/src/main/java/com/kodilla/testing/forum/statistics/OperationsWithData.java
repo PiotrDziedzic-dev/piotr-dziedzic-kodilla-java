@@ -37,13 +37,13 @@ public class OperationsWithData {
         e = averageAmountOfCommentsPerUser;
     }
 
-    //public void showData() {
-    //  OperationsWithData xyz = new OperationsWithData(Statistics statistics);
-    //xyz.calculateAdvStatistics(Statistics statistics);
-    //System.out.println(a);
-    //System.out.println(b);
-    //System.out.println(c);
-    //System.out.println(d);
-    //System.out.println(e);
-    //}
+    public void showData() {
+      OperationsWithData xyz = new OperationsWithData(statistics);
+    xyz.calculateAdvStatistics(statistics);
+    System.out.println(a);
+    System.out.println(b);
+    System.out.println(c);
+    System.out.println(d);
+    System.out.println(e);
+    }
 }
