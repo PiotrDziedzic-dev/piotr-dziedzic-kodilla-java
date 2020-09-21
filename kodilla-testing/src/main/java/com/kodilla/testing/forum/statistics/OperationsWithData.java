@@ -16,12 +16,20 @@ public class OperationsWithData {
         this.statistics = statistics;
     }
 
+    public double getD() {
+        return d;
+    }
+
+    public double getE() {
+        return e;
+    }
+
     public void calculateAdvStatistics(Statistics statistics) {
         int amountOfForumUsers = statistics.usersNames().size();
         int amountOfPosts = statistics.postsCount();
         int amountOfComments = statistics.commentsCount();
-        double averageAmountOfPostsPerUser = statistics.postsCount()/statistics.usersNames().size();
-        double averageAmountOfCommentsPerUser = statistics.commentsCount()/statistics.usersNames().size();
+        double averageAmountOfPostsPerUser = statistics.postsCount() / statistics.usersNames().size();
+        double averageAmountOfCommentsPerUser = statistics.commentsCount() / statistics.usersNames().size();
         a = amountOfForumUsers;
         b = amountOfPosts;
         c = amountOfComments;
@@ -29,13 +37,13 @@ public class OperationsWithData {
         e = averageAmountOfCommentsPerUser;
     }
 
-    public void showData() {
-        OperationsWithData xyz = new OperationsWithData(Statistics statistics);
-        xyz.calculateAdvStatistics(Statistics statistics);
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(d);
-        System.out.println(e);
-    }
+    //public void showData() {
+    //  OperationsWithData xyz = new OperationsWithData(Statistics statistics);
+    //xyz.calculateAdvStatistics(Statistics statistics);
+    //System.out.println(a);
+    //System.out.println(b);
+    //System.out.println(c);
+    //System.out.println(d);
+    //System.out.println(e);
+    //}
 }

@@ -9,7 +9,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class OpetaionsWithDataTestSuite {
+public class OperationsWithDataTestSuite {
 
     @Mock
     private Statistics statisticsMock;
@@ -17,15 +17,14 @@ public class OpetaionsWithDataTestSuite {
     @Test
     void amountOfPostsIs0() {
         //Given
-        when(statisticsMock.postsCount()).thenReturn(0);
+        int amountOfPosts = 0;
+        when(statisticsMock.postsCount()).thenReturn(amountOfPosts);
         OperationsWithData operationsWithData = new OperationsWithData(statisticsMock);
 
         //When
         operationsWithData.calculateAdvStatistics(statisticsMock);
-
         //Then
-        Assertions.assertEquals(0,);
-
-
+        Assertions.assertEquals(0,operationsWithData.getD());
     }
+
 }
