@@ -28,7 +28,6 @@ public class OperationsWithDataTestSuite {
             when(statisticsMock.usersNames()).thenReturn(abc);
 
         }
-
         @Test
         void amountOfPostsIs0() {
             //Given
@@ -41,7 +40,6 @@ public class OperationsWithDataTestSuite {
             //Then
             Assertions.assertEquals(0, operationsWithData.getAverageAmountOfCommentsPerUser());
         }
-
         @Test
         void amountOfPostsIs100() {
             //Given
@@ -55,7 +53,6 @@ public class OperationsWithDataTestSuite {
             //Then
             Assertions.assertEquals(10, operationsWithData.getAverageAmountOfPostsPerUser());
         }
-
         @Test
         void amountOfCommentsIs0() {
             //Given
@@ -69,11 +66,10 @@ public class OperationsWithDataTestSuite {
             //Then
             Assertions.assertEquals(0, operationsWithData.getAverageAmountOfCommentsPerUser());
         }
-
         @Test
         void postsAreMoreThenComments() {
             //Given
-            int amountOfPosts = 1000;
+            int amountOfPosts = 1002;
             int amountOfComments = 999;
             when(statisticsMock.commentsCount()).thenReturn(amountOfComments);
             when(statisticsMock.postsCount()).thenReturn(amountOfPosts);
@@ -83,15 +79,14 @@ public class OperationsWithDataTestSuite {
             operationsWithData.calculateAdvStatistics(statisticsMock);
 
             //Then
-            Assertions.assertTrue(operationsWithData.getAverageAmountOfPostsPerUser() > 332);
-            Assertions.assertTrue(operationsWithData.getAverageAmountOfCommentsPerUser() < 334);
+            Assertions.assertEquals(operationsWithData.getAverageAmountOfPostsPerUser(),334);
+            Assertions.assertEquals(operationsWithData.getAverageAmountOfCommentsPerUser(), 333);
         }
-
         @Test
         void amountOfCommentsIsMoreThenPosts() {
             //Given
             int amountOfPosts = 999;
-            int amountOfComments = 1000;
+            int amountOfComments = 996;
             when(statisticsMock.commentsCount()).thenReturn(amountOfComments);
             when(statisticsMock.postsCount()).thenReturn(amountOfPosts);
             OperationsWithData operationsWithData = new OperationsWithData(statisticsMock);
@@ -100,18 +95,13 @@ public class OperationsWithDataTestSuite {
             operationsWithData.calculateAdvStatistics(statisticsMock);
 
             //Then
-            Assertions.assertTrue(operationsWithData.getAverageAmountOfPostsPerUser() < 334);
-            Assertions.assertTrue(operationsWithData.getAverageAmountOfCommentsPerUser() > 332);
-
+            Assertions.assertEquals(operationsWithData.getAverageAmountOfPostsPerUser(),333);
+            Assertions.assertEquals(operationsWithData.getAverageAmountOfCommentsPerUser(), 332);
         }
-
     }
-
-
     @Nested
     @DisplayName("When amount of forum users is 0")
     public class testCase2 {
-
         @Test
         void amountOfForumUsersIs0() {
             //Given
@@ -123,10 +113,8 @@ public class OperationsWithDataTestSuite {
             operationsWithData.calculateAdvStatistics(statisticsMock);
 
             //Then
-            Assertions.assertEquals(operationsWithData.getAverageAmountOfCommentsPerUser(),0.00000000000009);
-            Assertions.assertEquals(operationsWithData.getAverageAmountOfPostsPerUser(),0.00000000000001);
-
-
+            Assertions.assertEquals(operationsWithData.getAverageAmountOfCommentsPerUser(),0);
+            Assertions.assertEquals(operationsWithData.getAverageAmountOfPostsPerUser(),0);
         }
     }
     @Nested

@@ -4,54 +4,53 @@ import java.util.*;
 
 public class OperationsWithData {
 
-    int amountOfPosts1;
-    int amountOfForumUsers1;
-    int amountOfComments1;
-    double averageAmountOfPostsPerUser1;
-    double averageAmountOfCommentsPerUser1;
+    private int amountOfPosts;
+    private int amountOfForumUsers;
+    private int amountOfComments;
+    private double averageAmountOfPostsPerUser;
+    private double averageAmountOfCommentsPerUser;
 
     private Statistics statistics;
 
-    public OperationsWithData(Statistics statistics) {
-        this.statistics = statistics;
+
+    public OperationsWithData(Statistics statistics) { this.statistics = statistics;
     }
 
     public double getAverageAmountOfPostsPerUser() {
-        return averageAmountOfPostsPerUser1;
+        return averageAmountOfPostsPerUser;
     }
 
     public double getAverageAmountOfCommentsPerUser() {
-        return averageAmountOfCommentsPerUser1;
+        return averageAmountOfCommentsPerUser;
     }
 
     public void calculateAdvStatistics(Statistics statistics) {
-        double averageAmountOfPostsPerUser;
-        double averageAmountOfCommentsPerUser;
+
         int amountOfForumUsers = statistics.usersNames().size();
         int amountOfPosts = statistics.postsCount();
         int amountOfComments = statistics.commentsCount();
+
         if (statistics.usersNames().size() != 0 ) {
             averageAmountOfPostsPerUser = statistics.postsCount() / statistics.usersNames().size();
             averageAmountOfCommentsPerUser = statistics.commentsCount() / statistics.usersNames().size();
-
+            System.out.println("DIVIDING BY 0 IS IMPOSSIBLE !!!");
         } else {
-            averageAmountOfPostsPerUser = 0.00000000000001;
-            averageAmountOfCommentsPerUser = 0.00000000000009;
+            double averageAmountOfPostsPerUser = 0;
+            double averageAmountOfCommentsPerUser = 0;
         }
-        amountOfForumUsers1 = amountOfForumUsers;
-        amountOfPosts1 = amountOfPosts;
-        amountOfComments1 = amountOfComments;
-        averageAmountOfPostsPerUser1 = averageAmountOfPostsPerUser;
-        averageAmountOfCommentsPerUser1 = averageAmountOfCommentsPerUser;
+        amountOfForumUsers = statistics.usersNames().size();
+        amountOfPosts = statistics.postsCount();
+        amountOfComments = statistics.commentsCount();
+
     }
 
     public void showData() {
       OperationsWithData xyz = new OperationsWithData(statistics);
     xyz.calculateAdvStatistics(statistics);
-    System.out.println(amountOfForumUsers1);
-    System.out.println(amountOfPosts1);
-    System.out.println(amountOfComments1);
-    System.out.println(averageAmountOfPostsPerUser1);
-    System.out.println(averageAmountOfCommentsPerUser1);
+    System.out.println(amountOfForumUsers);
+    System.out.println(amountOfPosts);
+    System.out.println(amountOfComments);
+    System.out.println(averageAmountOfPostsPerUser);
+    System.out.println(averageAmountOfCommentsPerUser);
     }
 }
