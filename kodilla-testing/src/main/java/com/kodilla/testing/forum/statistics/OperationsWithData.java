@@ -13,7 +13,7 @@ public class OperationsWithData {
     private Statistics statistics;
 
 
-    public OperationsWithData(Statistics statistics) { this.statistics = statistics;
+    public OperationsWithData() {
     }
 
     public double getAverageAmountOfPostsPerUser() {
@@ -45,7 +45,7 @@ public class OperationsWithData {
     }
 
     public void showData() {
-      OperationsWithData xyz = new OperationsWithData(statistics);
+      OperationsWithData xyz = new OperationsWithData();
     xyz.calculateAdvStatistics(statistics);
     System.out.println(amountOfForumUsers);
     System.out.println(amountOfPosts);

@@ -33,7 +33,7 @@ public class OperationsWithDataTestSuite {
             //Given
             int amountOfPosts = 0;
             when(statisticsMock.postsCount()).thenReturn(amountOfPosts);
-            OperationsWithData operationsWithData = new OperationsWithData(statisticsMock);
+            OperationsWithData operationsWithData = new OperationsWithData();
 
             //When
             operationsWithData.calculateAdvStatistics(statisticsMock);
@@ -45,7 +45,7 @@ public class OperationsWithDataTestSuite {
             //Given
             int amountOfPosts = 30;
             when(statisticsMock.postsCount()).thenReturn(amountOfPosts);
-            OperationsWithData operationsWithData = new OperationsWithData(statisticsMock);
+            OperationsWithData operationsWithData = new OperationsWithData();
 
             //When
             operationsWithData.calculateAdvStatistics(statisticsMock);
@@ -58,7 +58,7 @@ public class OperationsWithDataTestSuite {
             //Given
             int amountOfComments = 0;
             when(statisticsMock.commentsCount()).thenReturn(amountOfComments);
-            OperationsWithData operationsWithData = new OperationsWithData(statisticsMock);
+            OperationsWithData operationsWithData = new OperationsWithData();
 
             //When
             operationsWithData.calculateAdvStatistics(statisticsMock);
@@ -73,7 +73,7 @@ public class OperationsWithDataTestSuite {
             int amountOfComments = 999;
             when(statisticsMock.commentsCount()).thenReturn(amountOfComments);
             when(statisticsMock.postsCount()).thenReturn(amountOfPosts);
-            OperationsWithData operationsWithData = new OperationsWithData(statisticsMock);
+            OperationsWithData operationsWithData = new OperationsWithData();
 
             //When
             operationsWithData.calculateAdvStatistics(statisticsMock);
@@ -89,7 +89,7 @@ public class OperationsWithDataTestSuite {
             int amountOfComments = 996;
             when(statisticsMock.commentsCount()).thenReturn(amountOfComments);
             when(statisticsMock.postsCount()).thenReturn(amountOfPosts);
-            OperationsWithData operationsWithData = new OperationsWithData(statisticsMock);
+            OperationsWithData operationsWithData = new OperationsWithData();
 
             //When
             operationsWithData.calculateAdvStatistics(statisticsMock);
@@ -107,7 +107,7 @@ public class OperationsWithDataTestSuite {
             //Given
             List<String> abc = new ArrayList<>();
             when(statisticsMock.usersNames()).thenReturn(abc);
-            OperationsWithData operationsWithData = new OperationsWithData(statisticsMock);
+            OperationsWithData operationsWithData = new OperationsWithData();
 
             //When
             operationsWithData.calculateAdvStatistics(statisticsMock);
@@ -130,7 +130,7 @@ public class OperationsWithDataTestSuite {
             int amountOfPosts = 1000;
             when(statisticsMock.postsCount()).thenReturn(amountOfPosts);
             when(statisticsMock.usersNames()).thenReturn(abc);
-            OperationsWithData operationsWithData = new OperationsWithData(statisticsMock);
+            OperationsWithData operationsWithData = new OperationsWithData();
 
             //When
             operationsWithData.calculateAdvStatistics(statisticsMock);
