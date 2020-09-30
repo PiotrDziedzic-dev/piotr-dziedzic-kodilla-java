@@ -1,9 +1,6 @@
 package com.kodilla.testing.library;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -32,7 +29,7 @@ class BookDirectoryTestSuite {
 
     @Nested
     @DisplayName("TEST--listBooksWithConditions")
-    public class abc {
+    public class bookWithConditions {
         @Test
         void testListBooksWithConditionsReturnList() {
             // Given
@@ -106,50 +103,59 @@ class BookDirectoryTestSuite {
 
     @Nested
     @DisplayName("TEST--listBooksWithConditions")
-    public class xyz {
+    public class differentAmountOfBorrowedBooks {
+
+        private LibraryUser user;
+
+        @BeforeEach
+        void setup() {
+            user = new LibraryUser("Jan","Kowalski","123123123");
+        }
+
         @Test
         void testWhenUserHas0BorrowedBooks() {
             //Given
             BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-            List<Book> borrowedBooks = new ArrayList<>();
-            LibraryUser user = new LibraryUser("Jan","Kowalski","123123123");
-            when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(borrowedBooks);
+            when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(new ArrayList<>());
+
             //When
-            List<Book> abc = bookLibrary.listBooksInHandsOf(user);
+            List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(user);
+
             //Then
-            Assertions.assertEquals(0,abc.size());
+            assertEquals(0,theListOfBooks0.size());
         }
+
         @Test
         void testWhenUserHas1BorrowedBook() {
             //Given
             BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-            List<Book> borrowedBooks = new ArrayList<>();
-            LibraryUser user = new LibraryUser("Jan","Kowalski","123123123");
-            Book book1 = new Book("a","b",2000);
-            borrowedBooks.add(book1);
-            when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(borrowedBooks);
+            when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(createBooks(1));
+
             //When
-            List<Book> abc = bookLibrary.listBooksInHandsOf(user);
+            List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOf(user);
+
             //Then
-            Assertions.assertEquals(1,abc.size());
+            assertEquals(1,theListOfBooks1.size());
         }
         @Test
         void testWhenUserHas5BorrowedBooks() {
             //Given
             BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-            List<Book> borrowedBooks = new ArrayList<>();
-            LibraryUser user = new LibraryUser("Jan","Kowalski","123123123");
-            for (int i = 0; i<=4; i++) {
-                Book book1 = new Book("Title"+i, "Author"+i, i);
-                        borrowedBooks.add(book1);
-            }
-            when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(borrowedBooks);
+            when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(createBooks(5));
 
             //When
-            List<Book> abc = bookLibrary.listBooksInHandsOf(user);
+            List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOf(user);
 
             //Then
-            Assertions.assertEquals(5,abc.size());
+            assertEquals(5,theListOfBooks5.size());
+        }
+
+        private List<Book> createBooks(int amount) {
+            List<Book> borrowedBooks = new ArrayList<>();
+            for (int i = 0; i < amount; i++) {
+                borrowedBooks.add(new Book("Title"+i, "Author"+i, i));
+            }
+            return borrowedBooks;
         }
     }
 
