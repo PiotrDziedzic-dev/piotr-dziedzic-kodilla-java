@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import com.kodilla.stream.array.*;
 
+import java.util.OptionalDouble;
+
 public class ArrayOperationsTestSuite {
 
     @Test
@@ -17,7 +19,7 @@ public class ArrayOperationsTestSuite {
         tablica[4] = 9;
 
         //When
-        double expectedAverage = ArrayOperations.getAverage(tablica);
+        Double expectedAverage = ArrayOperations.getAverage(tablica);
 
         //Then
         Assertions.assertEquals(7,expectedAverage);

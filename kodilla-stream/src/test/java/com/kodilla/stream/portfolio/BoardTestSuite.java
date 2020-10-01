@@ -1,7 +1,9 @@
 package com.kodilla.stream.portfolio;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,11 +109,12 @@ class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List<TaskList> undoneTasks = new ArrayList<>();
+        /* List<TaskList> undoneTasks = new ArrayList<>();
         undoneTasks.add(new TaskList("To do"));
-        undoneTasks.add(new TaskList("In progress"));
+        undoneTasks.add(new TaskList("In progress")); */
         List<Task> tasks = project.getTaskLists().stream()
-                .filter(undoneTasks::contains)
+                // .filter(undoneTasks::contains)
+                .filter(tl->!"Done".equals(tl.getName()))
                 .flatMap(tl -> tl.getTasks().stream())
                 .filter(t -> t.getDeadline().isBefore(LocalDate.now()))
                 .collect(toList());
@@ -143,14 +146,31 @@ class BoardTestSuite {
         //Given
         Board project = prepareTestData();
 
+
         //When
+
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        long abc = project.getTaskLists().stream()
+       long abc = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl->tl.getTasks().stream())
                 .map(Task::getCreated)
-                .map(localDate -> LocalDate.now()-localDate)
+                .mapToLong(localDate -> Period.between(localDate,LocalDate.now()).getDays())
+                .sum();
+
+
+
+       List<TaskList> inProgressTasks2 = new ArrayList<>();
+       inProgressTasks2.add(new TaskList("In progress"));
+       long xyz = project.getTaskLists().stream()
+               .filter(inProgressTasks::contains)
+               .map(n->n.getTasks().size())
+               .findFirst().get();
+
+        double average = abc/xyz;
+
+       //Then
+        Assertions.assertEquals(average,10.0,0);
 
 
 
