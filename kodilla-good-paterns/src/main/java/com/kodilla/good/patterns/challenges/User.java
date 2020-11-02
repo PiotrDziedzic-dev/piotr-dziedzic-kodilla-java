@@ -2,13 +2,19 @@ package com.kodilla.good.patterns.challenges;
 
 public class User {
     private String name;
-    private String surnname;
+    private String surname;
+
+    public User(String name, String surname){
+        this.name = name;
+        this.surname = surname;
+
+    }
 
     public String getName() {
         return name;
     }
 
-    public String getSurnname() {
-        return surnname;
+    public String getSurname() {
+        return surname;
     }
 }

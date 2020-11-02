@@ -6,7 +6,6 @@ public class ProductOrderService {
     private OrderRepository orderRepository;
     private OrderService orderService;
 
-
     public ProductOrderService(InformationService informationService, OrderService orderService, OrderRepository orderRepository) {
         this.informationService = informationService;
         this.orderRepository = orderRepository;
@@ -23,7 +22,5 @@ public class ProductOrderService {
         } else {
             return new OrderDto(orderRequest.getUser(), false);
         }
-
     }
-
 }
