@@ -17,5 +17,4 @@ public class FoodOrderService {
         realisationOfOrder.realisation(propositionOfDeal.getShop());
         checkingOfOrder.Checking(propositionOfDeal.getShop());
     }
-
 }

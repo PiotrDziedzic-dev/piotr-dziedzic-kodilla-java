@@ -19,7 +19,7 @@ public class Shop {
     }
 
     public boolean process() {
-        System.out.println("Ok we will send you "+ourProduct.getAmountInKilograms()+" kg of "+ourProduct.getName());
+        System.out.println("Ok we will send you "+ourProduct.getAmountInKilograms()+"kg of "+ourProduct.getName());
         return true;
     }
 }
