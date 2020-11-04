@@ -3,7 +3,7 @@ import java.lang.*;
 
 
 public class NumberOfFlight {
-    private int number;
+    private Integer number;
 
     public NumberOfFlight(int number) {
         this.number = number;
@@ -15,7 +15,12 @@ public class NumberOfFlight {
     }
 
     @Override
-    public int HashCode() {
+    public int hashCode() {
         return number;
+    }
+
+    @Override
+    public String toString() {
+        return number.toString()+" ";
     }
 }
