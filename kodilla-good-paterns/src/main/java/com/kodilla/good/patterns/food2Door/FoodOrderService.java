@@ -2,19 +2,21 @@ package com.kodilla.good.patterns.food2Door;
 
 public class FoodOrderService {
 
-    private InformationsAboutShop informationsAboutShop;
-    private RealisationOfOrder realisationOfOrder;
-    private CheckingOfOrder checkingOfOrder;
+    private InformationService informationService;
+    private Process process;
 
-    public FoodOrderService(InformationsAboutShop informationsAboutShop,RealisationOfOrder realisationOfOrder,CheckingOfOrder checkingOfOrder) {
-        this.informationsAboutShop = informationsAboutShop;
-        this.realisationOfOrder = realisationOfOrder;
-        this.checkingOfOrder = checkingOfOrder;
+    public FoodOrderService(InformationService informationService, Process process) {
+        this.informationService = informationService;
+        this.process = process;
 
     }
-    public void addShopWhichDeliversFood(PropositionOfDeal propositionOfDeal) {
-        informationsAboutShop.inform(propositionOfDeal.getShop());
-        realisationOfOrder.realisation(propositionOfDeal.getShop());
-        checkingOfOrder.Checking(propositionOfDeal.getShop());
+    public boolean makeOrder(Shop shop,Order order) {
+        informationService.inform(order);
+        if(process.process(shop,order)) {
+            System.out.println("Order has been procesed correctly");
+        } else {
+            System.out.println("We couldn't realizate order");
+        }
+        return true;
     }
 }

@@ -1,25 +1,23 @@
 package com.kodilla.good.patterns.food2Door;
 
+import java.util.List;
+
 public class Shop {
 
     private String name;
-    private Product ourProduct;
+    private List<Product> ourProducts;
 
-    public Shop(String name, Product ourProduct){
+    public Shop(String name, List<Product> ourProducts){
         this.name = name;
-        this.ourProduct = ourProduct;
+        this.ourProducts = ourProducts;
     }
 
     public String getName() {
         return name;
     }
 
-    public Product getOurProduct() {
-        return ourProduct;
+    public List<Product> getOurProducts() {
+        return ourProducts;
     }
 
-    public boolean process() {
-        System.out.println("Ok we will send you "+ourProduct.getAmountInKilograms()+"kg of "+ourProduct.getName());
-        return true;
-    }
 }

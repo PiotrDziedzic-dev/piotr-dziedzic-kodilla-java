@@ -4,18 +4,18 @@ package com.kodilla.good.patterns.food2Door;
 public class Product {
 
     private String name;
-    private int amountInKilograms;
+    private int amount;
 
-    public Product(String name, int amountInKilograms) {
+    public Product(String name, int amount) {
         this.name = name;
-        this.amountInKilograms = amountInKilograms;
+        this.amount = amount;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAmountInKilograms() {
-        return amountInKilograms;
+    public int getAmount() {
+        return amount;
     }
 }
