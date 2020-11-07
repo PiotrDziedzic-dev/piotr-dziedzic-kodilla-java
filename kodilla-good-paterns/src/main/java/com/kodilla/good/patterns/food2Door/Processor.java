@@ -1,4 +1,6 @@
 package com.kodilla.good.patterns.food2Door;
 
-public class Processor implements Process{
+public interface Processor {
+
+    public boolean process();
 }

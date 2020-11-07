@@ -3,19 +3,19 @@ package com.kodilla.good.patterns.food2Door;
 public class FoodOrderService {
 
     private InformationService informationService;
-    private Process process;
+    private Processor processor;
 
-    public FoodOrderService(InformationService informationService, Process process) {
+    public FoodOrderService(InformationService informationService, Processor processor) {
         this.informationService = informationService;
-        this.process = process;
+        this.processor = processor;
 
     }
-    public boolean makeOrder(Shop shop,Order order) {
-        informationService.inform(order);
-        if(process.process(shop,order)) {
-            System.out.println("Order has been procesed correctly");
+    public boolean makeOrder(Order order,Shop shop) {
+        informationService.inform(order,shop);
+        if(processor.process()) {
+            informationService.orderCorrect();
         } else {
-            System.out.println("We couldn't realizate order");
+            informationService.orderIncorrect();
         }
         return true;
     }

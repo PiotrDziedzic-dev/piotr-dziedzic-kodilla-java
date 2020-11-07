@@ -1,21 +1,23 @@
 package com.kodilla.good.patterns.food2Door;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Application {
 
     public static void main(String[] args) {
 
-        CreatingData creatingData = new CreatingData();
-        Shop shop1 = new Shop("Biedronka",creatingData.shop1List);
-        Shop shop2 = new Shop("Lidl",creatingData.shop2List);
-        Order order1 = new Order(shop1.getName(),shop1.getOurProducts().get(1));
-        Order order2 = new Order(shop2.getName(),shop2.getOurProducts().get(1));
-        Processor processor1 = new Processor();
+        DataCreator dataCreator = new DataCreator();
+        Order order1 = new Order(dataCreator.getShop1List().get(1));
+        Order order2 = new Order(dataCreator.getShop2List().get(1));
+        Order order3 = new Order(dataCreator.getShop3List().get(1));
+        ExtraFoodShop extraFoodShop = new ExtraFoodShop("ExtraFoodShop",dataCreator.getShop1List(),order1);
+        HealthyShop healthyShop = new HealthyShop("HealthyShop",dataCreator.getShop2List(),order2);
+        GlutenFreeShop glutenFreeShop = new GlutenFreeShop("GlutenFreeShop",dataCreator.getShop3List(),order3);
         Informator informator1 = new Informator();
-        FoodOrderService foodOrderService = new FoodOrderService(informator1,processor1);
-        foodOrderService.makeOrder(shop1,order1);
-        foodOrderService.makeOrder(shop2,order2);
+        FoodOrderService foodOrderService1 = new FoodOrderService(informator1,extraFoodShop);
+        FoodOrderService foodOrderService2 = new FoodOrderService(informator1,healthyShop);
+        FoodOrderService foodOrderService3 = new FoodOrderService(informator1,glutenFreeShop);
+        foodOrderService1.makeOrder(order1,extraFoodShop);
+        foodOrderService2.makeOrder(order2,healthyShop);
+        foodOrderService3.makeOrder(order3,glutenFreeShop);
+
     }
 }
