@@ -4,14 +4,17 @@ public class Application {
     public static void main(String[] args) {
 
         String myCity = "Kraków";
+        String cityA = "Warszawa";
+        String cityB = "Wrocław";
         ListOfFlights listOfFlights = new ListOfFlights();
-        FlightFinder flightFinder = new FlightFinder();
+        FlightFinder flightFinder = new FlightFinder(listOfFlights.getFlights());
         System.out.println("Finding flights to your city");
-        flightFinder.findDirectFlightFromMyCity(listOfFlights.getDirectFlights(),myCity);
-        flightFinder.findInDirectFlightFromMyCity(listOfFlights.getIndirectFlights(),myCity);
+        flightFinder.findFlightFromMyCity(myCity);
         System.out.println("Finding flights from your city");
-        flightFinder.findDirectFlightToMyCity(listOfFlights.getDirectFlights(),myCity);
-        flightFinder.findInDirectFlightToMyCity(listOfFlights.getIndirectFlights(),myCity);
+        flightFinder.findFlightToMyCity(myCity);
+        System.out.println("Finding flights from city A to city B: ");
+        flightFinder.findFlightsWithChange(listOfFlights.getFlights(),cityA,cityB);
+
 
     }
 }

@@ -6,71 +6,59 @@ import java.util.Map;
 public class ListOfFlights {
 
 
-    DirectFlight directFlight1 = new DirectFlight("Kraków","Warszawa");
-    DirectFlight directFlight2 = new DirectFlight("Kraków","Wrocław");
-    DirectFlight directFlight3 = new DirectFlight("Kraków","Gdańsk");
-    DirectFlight directFlight4 = new DirectFlight("Kraków","Poznań");
-    DirectFlight directFlight5 = new DirectFlight("Wrocław","Kraków");
-    DirectFlight directFlight6 = new DirectFlight("Wrocław","Warszawa");
-    DirectFlight directFlight7 = new DirectFlight("Wrocław","Poznań");
-    DirectFlight directFlight8 = new DirectFlight("Wrocław","Gdansk");
-    DirectFlight directFlight9 = new DirectFlight("Warszawa","Kraków");
-    DirectFlight directFlight10 = new DirectFlight("Warszawa","Gdańsk");
-    DirectFlight directFlight11 = new DirectFlight("Warszawa","Wrocław");
-    DirectFlight directFlight12 = new DirectFlight("Warszawa","Poznań");
-    DirectFlight directFlight13 = new DirectFlight("Poznań","Wrocław");
-    DirectFlight directFlight14 = new DirectFlight("Poznań","Kraków");
-    DirectFlight directFlight15 = new DirectFlight("Poznań","Warszawa");
-    DirectFlight directFlight16 = new DirectFlight("Poznań","Gdańsk");
-    DirectFlight directFlight17 = new DirectFlight("Gdańsk","Kraków");
-    DirectFlight directFlight18 = new DirectFlight("Gdańsk","Warszawa");
-    DirectFlight directFlight19 = new DirectFlight("Gdańsk","Wrocław");
-    DirectFlight directFlight20 = new DirectFlight("Gdańsk","Poznań");
+    Flight flight1 = new Flight("Kraków","Warszawa");
+    Flight flight2 = new Flight("Kraków","Wrocław");
+    Flight flight3 = new Flight("Kraków","Gdańsk");
+    Flight flight4 = new Flight("Kraków","Poznań");
+    Flight flight5 = new Flight("Wrocław","Kraków");
+    Flight flight6 = new Flight("Wrocław","Warszawa");
+    Flight flight7 = new Flight("Wrocław","Poznań");
+    Flight flight8 = new Flight("Wrocław","Gdansk");
+    Flight flight9 = new Flight("Warszawa","Kraków");
+    Flight flight10 = new Flight("Warszawa","Gdańsk");
+    Flight flight11 = new Flight("Warszawa","Wrocław");
+    Flight flight12 = new Flight("Warszawa","Poznań");
+    Flight flight13 = new Flight("Poznań","Wrocław");
+    Flight flight14 = new Flight("Poznań","Kraków");
+    Flight flight15 = new Flight("Poznań","Warszawa");
+    Flight flight16 = new Flight("Poznań","Gdańsk");
+    Flight flight17 = new Flight("Gdańsk","Kraków");
+    Flight flight18 = new Flight("Gdańsk","Warszawa");
+    Flight flight19 = new Flight("Gdańsk","Wrocław");
+    Flight flight20 = new Flight("Gdańsk","Poznań");
+    Flight flight21 = new Flight("Warszawa","Londyn");
 
-    IndirectFlight indirectFlight1 = new IndirectFlight("Kraków","Warszawa","Gdańsk");
-    IndirectFlight indirectFlight2 = new IndirectFlight("Gdańsk","Poznań","Kraków");
-    IndirectFlight indirectFlight3 = new IndirectFlight("Poznań","Wrocław","Warszawa");
-    IndirectFlight indirectFlight4 = new IndirectFlight("Warszawa","Kraków","Wrocław");
-    IndirectFlight indirectFlight5 = new IndirectFlight("Wrocław","Gdańsk","Poznań");
-
-    Map<NumberOfFlight,DirectFlight> directFlights = new HashMap<>();
-    Map<NumberOfFlight,IndirectFlight> indirectFlights = new HashMap<>();
+    private Map<Integer, Flight> flights = new HashMap<>();
 
     public ListOfFlights () {
-        directFlights.put(new NumberOfFlight(1), directFlight1);
-        directFlights.put(new NumberOfFlight(2), directFlight2);
-        directFlights.put(new NumberOfFlight(3), directFlight3);
-        directFlights.put(new NumberOfFlight(4), directFlight4);
-        directFlights.put(new NumberOfFlight(5), directFlight5);
-        directFlights.put(new NumberOfFlight(6), directFlight6);
-        directFlights.put(new NumberOfFlight(7), directFlight7);
-        directFlights.put(new NumberOfFlight(8), directFlight8);
-        directFlights.put(new NumberOfFlight(9), directFlight9);
-        directFlights.put(new NumberOfFlight(10), directFlight10);
-        directFlights.put(new NumberOfFlight(11), directFlight11);
-        directFlights.put(new NumberOfFlight(12), directFlight12);
-        directFlights.put(new NumberOfFlight(13), directFlight13);
-        directFlights.put(new NumberOfFlight(14), directFlight14);
-        directFlights.put(new NumberOfFlight(15), directFlight15);
-        directFlights.put(new NumberOfFlight(16), directFlight16);
-        directFlights.put(new NumberOfFlight(17), directFlight17);
-        directFlights.put(new NumberOfFlight(18), directFlight18);
-        directFlights.put(new NumberOfFlight(19), directFlight19);
-        directFlights.put(new NumberOfFlight(20), directFlight20);
 
-        indirectFlights.put(new NumberOfFlight(101),indirectFlight1);
-        indirectFlights.put(new NumberOfFlight(102),indirectFlight2);
-        indirectFlights.put(new NumberOfFlight(103),indirectFlight3);
-        indirectFlights.put(new NumberOfFlight(104),indirectFlight4);
-        indirectFlights.put(new NumberOfFlight(105),indirectFlight5);
+        flights.put(1, flight1);
+        flights.put(2, flight2);
+        flights.put(3, flight3);
+        flights.put(4, flight4);
+        flights.put(5, flight5);
+        flights.put(6, flight6);
+        flights.put(7, flight7);
+        flights.put(8, flight8);
+        flights.put(9, flight9);
+        flights.put(10, flight10);
+        flights.put(11, flight11);
+        flights.put(12, flight12);
+        flights.put(13, flight13);
+        flights.put(14, flight14);
+        flights.put(15, flight15);
+        flights.put(16, flight16);
+        flights.put(17, flight17);
+        flights.put(18, flight18);
+        flights.put(19, flight19);
+        flights.put(20, flight20);
+        flights.put(21, flight21);
+
 
     }
 
-    public Map<NumberOfFlight, DirectFlight> getDirectFlights() {
-        return directFlights;
+    public Map<Integer, Flight> getFlights() {
+        return flights;
     }
 
-    public Map<NumberOfFlight, IndirectFlight> getIndirectFlights() {
-        return indirectFlights;
-    }
 }

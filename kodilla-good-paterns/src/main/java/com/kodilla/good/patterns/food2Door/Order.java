@@ -1,13 +1,18 @@
 package com.kodilla.good.patterns.food2Door;
 
-public class Order {
-    private Product product;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-    public Order(Product product){
-        this.product = product;
+public class Order {
+
+    private List<Product> products = new ArrayList<>();
+
+    public Order(Product...product) {
+        Collections.addAll(products, product);
     }
 
-    public Product getProduct() {
-        return product;
+    public List<Product> getProducts() {
+        return products;
     }
 }

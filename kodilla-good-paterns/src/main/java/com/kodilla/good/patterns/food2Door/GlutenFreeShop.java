@@ -2,25 +2,14 @@ package com.kodilla.good.patterns.food2Door;
 
 import java.util.List;
 
-public class GlutenFreeShop extends Shop implements Processor {
+public class GlutenFreeShop extends Shop {
 
-    private String name;
-    private List<Product> ourProducts;
-    private Order order;
 
-    public GlutenFreeShop(String name, List<Product> ourProducts, Order order) {
+    public GlutenFreeShop(String name, List<Product> ourProducts) {
         super(name, ourProducts);
-        this.order = order;
     }
 
-    public boolean process() {
 
-        if(ourProducts.contains(order.getProduct())) {
-            System.out.println("We are sending you" + order.getProduct().getAmount() + "of" + order.getProduct());
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 
 }

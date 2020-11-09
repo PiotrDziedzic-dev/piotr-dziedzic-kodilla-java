@@ -11,6 +11,10 @@ public class Product {
         this.amount = amount;
     }
 
+    public void decreaseAmount(int orderAmount) {
+        amount = amount-orderAmount;
+    }
+
     public String getName() {
         return name;
     }
@@ -18,4 +22,10 @@ public class Product {
     public int getAmount() {
         return amount;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }

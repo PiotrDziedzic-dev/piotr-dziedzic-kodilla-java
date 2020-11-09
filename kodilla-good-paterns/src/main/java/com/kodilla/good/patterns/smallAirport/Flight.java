@@ -1,19 +1,18 @@
 package com.kodilla.good.patterns.smallAirport;
+import java.lang.*;
 
-public class IndirectFlight {
+public class Flight {
     private String startingAirport;
     private String endingAirport;
-    private String middleAirport;
 
-    public IndirectFlight(String startingAirport, String middleAirport, String endingAirport) {
+    public Flight(String startingAirport, String endingAirport) {
         this.startingAirport = startingAirport;
-        this.endingAirport = middleAirport;
         this.endingAirport = endingAirport;
     }
 
     @Override
     public String toString() {
-        return " Flight from: "+startingAirport+" via: "+ middleAirport+" to:"+endingAirport;
+        return " Flight from: "+startingAirport+" to "+endingAirport;
     }
 
     public String getStartingAirport() {
@@ -22,9 +21,5 @@ public class IndirectFlight {
 
     public String getEndingAirport() {
         return endingAirport;
-    }
-
-    public String getMiddleAirport() {
-        return middleAirport;
     }
 }
