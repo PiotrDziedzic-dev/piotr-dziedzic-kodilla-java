@@ -2,26 +2,25 @@ package com.kodilla.exception.test;
 
 public class FirstChallenge {
 
+    public double divide(double a, double b) throws ArithmeticException {
+        if (b == 0){
+            throw new ArithmeticException();
+        }
+        return a / b;
+    }
+
+    /**
+     * This main can throw an ArithmeticException!!!
+     * @param args
+     */
     public static void main(String[] args) {
 
-        Flight flight1 = new Flight("Tokyo","Beijing");
-        Flight flight2 = new Flight("Warsaw","London");
-        FindingYourFlight findingYourFlight = new FindingYourFlight();
+        FirstChallenge firstChallenge = new FirstChallenge();
 
         try {
-            findingYourFlight.findFlight(flight1);
-        } catch (RouteNotFoundException e) {
-            System.out.println("Your airport isn't available");
-        } finally {
-            System.out.println("Checking process has finished");
-        }
-
-        try {
-            findingYourFlight.findFlight(flight2);
-        } catch (RouteNotFoundException e) {
-            System.out.println("Your airport isn't available");
-        } finally {
-            System.out.println("Checking process has finished");
+            double result = firstChallenge.divide(3, 0);
+        } catch (ArithmeticException e) {
+            System.out.println("You can't divide over 0");
         }
     }
 }
