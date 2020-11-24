@@ -39,6 +39,9 @@ public final class Library extends Prototype<Library> {
         }
         return clonedLibrary;
     }
+    public void abc(){
+
+    }
 
     @Override
     public String toString() {

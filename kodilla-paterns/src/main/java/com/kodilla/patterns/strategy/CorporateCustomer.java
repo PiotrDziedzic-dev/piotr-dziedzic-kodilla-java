@@ -1,5 +1,6 @@
 package com.kodilla.patterns.strategy;
 
+
 import com.kodilla.patterns.strategy.predictors.BalancedPredictor;
 
 public class CorporateCustomer extends Customer {
@@ -8,3 +9,4 @@ public class CorporateCustomer extends Customer {
         this.buyPredictor = new BalancedPredictor();
     }
 }
+

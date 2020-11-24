@@ -8,3 +8,4 @@ public class IndividualYoungCustomer extends Customer {
         this.buyPredictor = new AggressivePredictor();
     }
 }
+

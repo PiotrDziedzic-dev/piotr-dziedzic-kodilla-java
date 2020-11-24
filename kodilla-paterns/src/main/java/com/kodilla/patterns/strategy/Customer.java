@@ -1,6 +1,7 @@
 package com.kodilla.patterns.strategy;
 
 public class Customer {
+
     private final String name;
     protected BuyPredictor buyPredictor;
 
@@ -20,3 +21,4 @@ public class Customer {
         this.buyPredictor = buyPredictor;
     }
 }
+
