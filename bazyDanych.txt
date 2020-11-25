@@ -1,0 +1,38 @@
+create table ISSUESLISTS (
+		ID serial Primary Key,
+		NAME varchar(100)
+);
+
+create table ISSUES (
+		ID serial Primary Key,
+        ISSUELISTS_ID BIGINT UNSIGNED NOT NULL,
+        FOREIGN KEY (ISSUELISTS_ID) REFERENCES ISSUELISTS(ID),
+        SUMMARY varchar(100),
+        DESCRIPTION varchar(1024),
+        USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+        FOREIGN KEY (USER_ID_ASSIGNEDTO) references users(ID)
+        );
+
+INSERT INTO ISSUELISTS (NAME)
+VALUES ("to do");
+
+INSERT INTO ISSUELISTS (NAME)
+VALUES ("in progress");
+
+INSERT INTO ISSUELISTS (NAME)
+VALUES ("done");
+
+INSERT INTO ISSUES (ISSUELISTS_ID,SUMMARY,DESCRIPTION,USER_ID_ASSIGNEDTO)
+values (1,"summarry 1","description 1",1); ----- 5x (zmienialem tylko liczbe w sumarry description i ID usera)
+
+commit;
+
+INSERT INTO ISSUES (ISSUELISTS_ID,SUMMARY,DESCRIPTION,USER_ID_ASSIGNEDTO)
+values (2,"summarry 1a","description 1a",1); -----5x
+
+commit;
+
+INSERT INTO ISSUES (ISSUELISTS_ID,SUMMARY,DESCRIPTION,USER_ID_ASSIGNEDTO)
+values (3,"summarry 5b","description 5b",5); -----5x
+
+commit;
