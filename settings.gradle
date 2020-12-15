@@ -11,4 +11,5 @@ include 'kodilla-paterns'
 include 'kodilla-jdbc'
 include 'kodilla-hibernate'
 include 'kodilla-palindrom'
+include 'kodilla-fibonacci-sequence'
 
