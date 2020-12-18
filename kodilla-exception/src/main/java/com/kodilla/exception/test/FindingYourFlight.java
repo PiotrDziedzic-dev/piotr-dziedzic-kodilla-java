@@ -16,20 +16,30 @@ public class FindingYourFlight {
         availableAirports.put("Rome",false);
     }
 
-    String findFlight(Flight flight) throws RouteNotFoundException {
+    void findFlight(Flight flight) throws RouteNotFoundException {
 
-        FindingYourFlight abc = new FindingYourFlight();
-        abc.prepareFlight();
+        prepareFlight();
 
-        boolean X = false;
-        for (Map.Entry<String,Boolean> entry :availableAirports.entrySet())
-            if(flight.getArrivalAirport() == entry.getKey()) {
-                X = true;
+        Boolean available;
+        Boolean exists = availableAirports.get(flight.getArrivalAirport());
+
+        if(availableAirports.containsKey(flight.getArrivalAirport()) && availableAirports.get(flight.getArrivalAirport())) {
+            available = true;
+        } else {
+            available = false;
+        }
+
+
+        if(exists!=null) {
+
+            if(available) {
+                System.out.println("Your flight is available");
+            } else {
+                System.out.println("Your flight is available but we sold all tickets sorry");
             }
-        if(X = true) {
-            return "Your airport is available";
         } else {
             throw new RouteNotFoundException();
         }
+
     }
 }

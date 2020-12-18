@@ -15,13 +15,12 @@ public class FirstChallenge {
      */
     public static void main(String[] args) {
 
-        FirstChallenge firstChallenge = new FirstChallenge();
+        FindingYourFlight findingYourFlight = new FindingYourFlight();
 
         try {
-            double result = firstChallenge.divide(3, 1);
-            System.out.println(result);
-        } catch (ArithmeticException e) {
-            System.out.println("You can't divide over 0");
+            findingYourFlight.findFlight(new Flight("Kraków","London"));
+        } catch (RouteNotFoundException e) {
+            System.out.println("We couldn't find your flight");
         } finally {
             System.out.println("I will be there anyway");
         }
