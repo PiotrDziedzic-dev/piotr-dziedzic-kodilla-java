@@ -6,6 +6,14 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesWithFirst3LettersLike",
+        query = "SELECT * FROM COMPANIES " +
+        "WHERE SUBSTRING(name,1,3) = :NAME",
+        resultClass = Company.class
+)
+
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

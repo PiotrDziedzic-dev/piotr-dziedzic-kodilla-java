@@ -2,9 +2,12 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,8 +17,12 @@ class CompanyDaoTestSuite {
     @Autowired
     private CompanyDao companyDao;
 
+    @Autowired
+    private EmployeeDao employeeDao;
+
     @Test
     void testSaveManyToMany() {
+
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -51,12 +58,42 @@ class CompanyDaoTestSuite {
         assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        //try {
-        //    companyDao.deleteById(softwareMachineId);
-        //    companyDao.deleteById(dataMaestersId);
-        //    companyDao.deleteById(greyMatterId);
-        //} catch (Exception e) {
-        //    //do nothing
-        //}
+        try {
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
+    }
+
+    @Test
+    void testNamedQueries() {
+
+        //Given
+        Employee employee1 = new Employee("John", "Smith");
+        Employee employee2 = new Employee("Stephanie", "Smith");
+        Employee employee3 = new Employee("Linda", "Kovalsky");
+
+        Company company1 = new Company("Software Machine");
+        Company company2 = new Company("Grey Data Maesters");
+        Company company3 = new Company("Grey Matter");
+
+        companyDao.save(company1);
+        companyDao.save(company2);
+        companyDao.save(company3);
+
+        employeeDao.save(employee1);
+        employeeDao.save(employee2);
+        employeeDao.save(employee3);
+
+        //When
+        List<Company> companyList = companyDao.retrieveCompaniesWithFirst3LettersLike("Gre");
+        List<Employee> employeeList = employeeDao.retrieveEmployeesWhereWithSurnameLike("Smith");
+
+        //Then
+        Assertions.assertEquals(2,companyList.size());
+        Assertions.assertEquals(2,employeeList.size());
+
     }
 }
