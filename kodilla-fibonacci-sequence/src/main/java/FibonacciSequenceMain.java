@@ -18,6 +18,7 @@ public class FibonacciSequenceMain {
         List<Integer> fibonacciSequence = new LinkedList<>();
         fibonacciSequence.add(a1);
         fibonacciSequence.add(a2);
+
         for(int i = 2; i<=given_n; i++)
         {
             fibonacciSequence.add(fibonacciSequence.get(i-2)+fibonacciSequence.get(i-1));
@@ -29,6 +30,24 @@ public class FibonacciSequenceMain {
 
         System.out.println("I will write down the "+given_n+"-th "+"number of Fibonacci sequence");
         System.out.println(fibonacciSequence.get((given_n)-1));
+        System.out.println("***************************************");
 
+        int fibValue = fib(given_n);
+        System.out.println(fibValue);
+
+    }
+
+    private static int fib(int n) {
+
+        if(n < 0) {
+            System.out.println("Error");
+            return 0;
+        } else if (n == 1) {
+            return 0;
+        } else if (n == 2) {
+            return 1;
+        } else {
+            return fib(n-1) + fib(n-2);
+        }
     }
 }

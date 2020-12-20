@@ -42,6 +42,7 @@ public class TaskList2 {
     }
 
     @OneToMany(
+
             targetEntity = Task.class,
             mappedBy = "taskList",
             cascade = CascadeType.ALL,
