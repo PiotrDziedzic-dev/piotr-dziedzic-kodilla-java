@@ -1,8 +1,6 @@
 package com.kodilla.hibernate.invoice;
 
 import com.sun.istack.NotNull;
-import org.hibernate.validator.constraints.UniqueElements;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -35,20 +33,23 @@ public class Item {
         return id;
     }
 
+    @Column
     public BigDecimal getPrice() {
         return price;
     }
 
+    @Column
     public int getQuantity() {
         return quantity;
     }
 
+    @Column
     public BigDecimal getValue() {
         return value;
     }
 
     @ManyToOne
-    @JoinColumn(name = "ITEM_ID")
+    @JoinColumn(name = "PRODUCT_ID")
 
     public Product getProduct() {
         return product;

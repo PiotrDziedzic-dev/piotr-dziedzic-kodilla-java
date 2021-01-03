@@ -87,6 +87,7 @@ class CompanyDaoTestSuite {
         employeeDao.save(employee2);
         employeeDao.save(employee3);
 
+
         //When
         List<Company> companyList = companyDao.retrieveCompaniesWithFirst3LettersLike("Gre");
         List<Employee> employeeList = employeeDao.retrieveEmployeesWhereWithSurnameLike("Smith");
@@ -94,6 +95,10 @@ class CompanyDaoTestSuite {
         //Then
         Assertions.assertEquals(2,companyList.size());
         Assertions.assertEquals(2,employeeList.size());
+
+        //CleanUp
+        employeeDao.deleteAll();
+        companyDao.deleteAll();
 
     }
 }

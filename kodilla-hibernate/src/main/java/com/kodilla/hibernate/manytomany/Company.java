@@ -1,6 +1,6 @@
 package com.kodilla.hibernate.manytomany;
 
-import javax.lang.model.type.ArrayType;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -9,10 +9,9 @@ import java.util.List;
 @NamedNativeQuery(
         name = "Company.retrieveCompaniesWithFirst3LettersLike",
         query = "SELECT * FROM COMPANIES " +
-        "WHERE SUBSTRING(name,1,3) = :NAME",
+        "WHERE SUBSTRING(company_name,1,3) = :NAME",
         resultClass = Company.class
 )
-
 
 @Entity
 @Table(name = "COMPANIES")
@@ -43,6 +42,9 @@ public class Company {
         return name;
     }
 
+    @ManyToMany(
+            cascade = CascadeType.ALL,
+            mappedBy = "companies")
     public List<Employee> getEmployees() {
         return employees;
     }
