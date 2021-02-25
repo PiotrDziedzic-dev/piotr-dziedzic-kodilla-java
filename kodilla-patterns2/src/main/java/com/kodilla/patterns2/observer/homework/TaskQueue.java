@@ -1,22 +1,24 @@
-package com.kodilla.patterns2.observer.forum;
+package com.kodilla.patterns2.observer.homework;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForumTopic implements Observable {
+public class TaskQueue implements Observable {
+
     private final List<Observer> observers;
-    private final List<String> messages;
+    private final List<String> tasks;
     private final String name;
 
-    public ForumTopic(String name) {
+    public TaskQueue(String name) {
         observers = new ArrayList<>();
-        messages = new ArrayList<>();
+        tasks = new ArrayList<>();
         this.name = name;
     }
 
-    public void addPost(String post) {
-        messages.add(post);
-        notifyObservers();
+    public void addTask(String task) {
+        tasks.add(task);
+        notifyObserver();
     }
 
     @Override
@@ -25,18 +27,19 @@ public class ForumTopic implements Observable {
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyObserver() {
         for (Observer observer : observers) {
             observer.update(this);
         }
     }
+
     @Override
     public void removeObserver(Observer observer) {
         observers.remove(observer);
     }
 
-    public List<String> getMessages() {
-        return messages;
+    public List<String> getTasks() {
+        return tasks;
     }
 
     public String getName() {
