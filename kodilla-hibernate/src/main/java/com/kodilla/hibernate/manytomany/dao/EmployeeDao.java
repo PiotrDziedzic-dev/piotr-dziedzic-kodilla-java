@@ -11,4 +11,6 @@ public interface EmployeeDao extends CrudRepository<Employee,Integer> {
 
     @Query
     List<Employee> retrieveEmployeesWhereWithSurnameLike (@Param("LASTNAME") String lastname);
+    @Query(nativeQuery = true)
+    List<Employee> retrieveEmployeesWhichHaveWord(@Param("ARGUMENT") String name);
 }

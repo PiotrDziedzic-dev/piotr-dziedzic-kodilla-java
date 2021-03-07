@@ -12,6 +12,12 @@ import java.util.List;
         "WHERE SUBSTRING(company_name,1,3) = :NAME",
         resultClass = Company.class
 )
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesWitchHaveWord",
+        query = "SELECT * FROM COMPANIES " +
+                "WHERE NAME LIKE :ARGUMENT",
+        resultClass = Company.class
+)
 
 @Entity
 @Table(name = "COMPANIES")

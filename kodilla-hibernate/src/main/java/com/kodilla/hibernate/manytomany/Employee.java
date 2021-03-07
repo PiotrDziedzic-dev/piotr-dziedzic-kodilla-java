@@ -10,6 +10,11 @@ import java.util.List;
         name = "Employee.retrieveEmployeesWhereWithSurnameLike",
         query = "SELECT FROM Employee where lastname = :LASTNAME"
 )
+@NamedNativeQuery(
+        name = "retrieveEmployeesWhichHaveWord",
+        query = "SELECT * FROM EMPLOYESS" +
+                "WHERE NAME LIKE :ARGUMENT"
+)
 
 @Entity
 @Table(name = "EMPLOYEES")
