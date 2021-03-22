@@ -44,7 +44,7 @@ public class FacebookTestingApp {
         WebElement searchField5 = driver.findElement(By.xpath(XPATH_SET_PHONE_NUMBER));
         searchField5.sendKeys("123123123");
 
-        WebElement searchField6 = driver.findElement(By.xpath(XPATH_SET_PASSWORD);
+        WebElement searchField6 = driver.findElement(By.xpath(XPATH_SET_PASSWORD));
         searchField6.sendKeys("TestoweHaslo");
 
         WebElement selectDay = driver.findElement(By.xpath(XPATH_SELECT_DAY));
